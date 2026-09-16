@@ -4,6 +4,7 @@ import { verifyWebhook } from "@clerk/backend/webhooks";
 import { db } from "../db";
 import { users } from "../db/schema";
 import { eq } from "drizzle-orm";
+import { parseRole } from "../lib/roles";
 
 
 export async function clerkWebhookHandler(req:Request, res:Response) {
@@ -41,7 +42,7 @@ export async function clerkWebhookHandler(req:Request, res:Response) {
         const role = parseRole(u.public_metadata?.role);
 
         await db
-        .inset(users)
+        .insert(users)
         .values({
             clerkUserId: u.id,
             email,
