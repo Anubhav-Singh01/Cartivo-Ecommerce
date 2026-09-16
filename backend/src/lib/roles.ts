@@ -1,4 +1,3 @@
-import { User } from "@clerk/backend";
 import type {UserRole} from "../db/schema.js";
 
 const VALID : readonly UserRole[] = ["customer", "support", "admin"];
