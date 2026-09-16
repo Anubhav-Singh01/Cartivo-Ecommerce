@@ -23,7 +23,7 @@ app.post("/webhooks/clerk", rawJson, (req,res) => {
 
 app.use(express.json());
 app.use(cors());
-app.use(clerkMiddleware)
+app.use(clerkMiddleware())
 
 const publicDir = path.join(process.cwd(), "public");
 if(fs.existsSync(publicDir)){
