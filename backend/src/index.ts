@@ -46,6 +46,6 @@ if(fs.existsSync(publicDir)){
     })
 }
 
-app.listen(env.PORT, "0.0.0.0", () => {
+app.listen(env.PORT, "::", () => {
     console.log("Listening on", env.PORT);
 });
