@@ -13,6 +13,7 @@ import keepAliveCron from "./lib/cron";
 import meRouter from "./routes/meRouter";
 import productRouter from "./routes/productRouter";
 import streamRouter from "./routes/streamRouter";
+import checkoutRouter from "./routes/checkoutRouter"
 
 
 const env = getEnv();
@@ -37,6 +38,7 @@ app.get("/health", (_req,res) => {
 app.use("/api/me", meRouter);
 app.use("/api/product", productRouter);
 app.use("/api/stream", streamRouter);
+app.use("/api/checkout", checkoutRouter);
 
 const publicDir = path.join(process.cwd(), "public");
 if(fs.existsSync(publicDir)){
